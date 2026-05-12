@@ -1,221 +1,311 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choki Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Choki</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+
+    /* =========================
+       RESET DASAR WEBSITE
+    ========================== */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-<script>
-function openPopup() {
-  document.getElementById("contactPopup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("contactPopup").style.display = "none";
-}
-
-/* klik luar popup = tutup */
-window.onclick = function(event) {
-  let popup = document.getElementById("contactPopup");
-
-  if (event.target == popup) {
-    popup.style.display = "none";
-  }
-}
-</script>
-    
-    body {
+    body{
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #dbeafe, #111827);
-      color: #111827;
+      background:#ececec;
+      color:#222;
     }
 
-    header {
-      width: 100%;
-      padding: 20px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.2);
-      z-index: 1000;
+    /* =========================
+       CONTAINER UTAMA
+    ========================== */
+    .container{
+      width:100%;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
+    /* =========================
+       BAGIAN HEADER ATAS
+    ========================== */
+    .header{
+      background:#1f2329;
+      color:white;
+      padding:50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #111827;
-      font-weight: 500;
+    /* Nama besar */
+    .header-left h1{
+      font-size:70px;
+      font-weight:300;
+      letter-spacing:3px;
     }
 
-    nav a:hover {
-      color: #2563eb;
+    /* Kontak kanan */
+    .header-right{
+      line-height:35px;
+      font-size:18px;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 120px 10%;
+    /* =========================
+       LAYOUT 2 KOLOM
+    ========================== */
+    .main{
+      display:grid;
+      grid-template-columns: 35% 65%;
+      min-height:100vh;
     }
 
-    .hero-text h1 {
-      font-size: 50px;
+    /* =========================
+       SIDEBAR KIRI
+    ========================== */
+    .left{
+      padding:40px;
+      border-right:2px solid #999;
     }
 
-    .hero-text span {
-      color: #2563eb;
+    /* Foto profile */
+    .profile-img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      margin-bottom:40px;
     }
 
-    .btn {
-      padding: 12px 20px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      display: inline-block;
-      margin-top: 10px;
+    /* Judul section kiri */
+    .left h2{
+      font-size:38px;
+      margin-bottom:20px;
+      font-weight:300;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
+    .section{
+      margin-bottom:60px;
     }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .section p{
+      line-height:30px;
+      font-size:18px;
     }
 
-    .logo-area img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      border: 2px solid #2563eb;
+    .section strong{
+      font-size:20px;
     }
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
 
-  justify-content: center;
-  align-items: center;
-}
+    /* =========================
+       KONTEN KANAN
+    ========================== */
+    .right{
+      padding:40px;
+    }
 
-/* BOX */
-.popup-content {
-  background: white;
-  padding: 30px;
-  width: 320px;
-  border-radius: 15px;
-  text-align: center;
+    .right-section{
+      margin-bottom:70px;
+      border-bottom:2px solid #999;
+      padding-bottom:40px;
+    }
 
-  animation: popupAnim 0.3s ease;
-}
+    /* Judul kanan */
+    .right-section h2{
+      font-size:42px;
+      margin-bottom:25px;
+      font-weight:300;
+    }
 
-/* ANIMASI */
-@keyframes popupAnim {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
+    /* Judul pekerjaan */
+    .job-title{
+      font-size:24px;
+      font-weight:bold;
+      margin-top:20px;
+    }
 
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+    .company{
+      font-size:20px;
+      margin-top:5px;
+    }
 
-/* TOMBOL CLOSE */
-.close-btn {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
+    .date{
+      margin:10px 0;
+      color:#555;
+    }
 
-/* LINK */
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
+    ul{
+      padding-left:25px;
+      line-height:35px;
+      font-size:18px;
+    }
 
-.contact-links a {
-  text-decoration: none;
-  background: #2563eb;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  transition: 0.3s;
-}
+    /* =========================
+       RESPONSIVE HP
+    ========================== */
+    @media(max-width:900px){
 
-.contact-links a:hover {
-  background: #1d4ed8;
-  transform: scale(1.05);
-}
+      .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+      }
+
+      .header-left h1{
+        font-size:45px;
+      }
+
+      .main{
+        grid-template-columns:1fr;
+      }
+
+      .left{
+        border-right:none;
+        border-bottom:2px solid #999;
+      }
 
     }
+
   </style>
-
 </head>
-
 <body>
- 
-  <header>
-    <div class="logo-area">
-  <img src="https://i.postimg.cc/BvbXGqg8/download.jpg" alt="Choki">
-  <span>CHOKI</span>
-</div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skill">Skill</a>
-      <a href="#Contact">Contact</a>
-</div>    
-      
-</nav>
-  </header>
+  <!-- =========================
+       HEADER WEBSITE
+  ========================== -->
+  <div class="container">
 
-<section class="hero" id="home">
+    <div class="header">
 
-  <div class="hero-text">
-    <h1>Halo, Saya <span>Choki</span></h1>
-    <h2>IT Support</h2>
+      <!-- Nama -->
+      <div class="header-left">
+        <h1>CHOKI</h1>
+      </div>
 
-    <p>
-      Membantu menyelesaikan masalah komputer, jaringan,
-      remote desktop, troubleshooting, dan kebutuhan teknis lainnya.
-    </p>
+      <!-- Kontak -->
+      <div class="header-right">
+        <p>Bandung, Indonesia</p>
+        <p>0812-3456-7890</p>
+        <p>emailkamu@gmail.com</p>
+        <p>www.websitekamu.com</p>
+      </div>
+
+    </div>
+
+    <!-- =========================
+         ISI WEBSITE
+    ========================== -->
+    <div class="main">
+
+      <!-- =========================
+           KOLOM KIRI
+      ========================== -->
+      <div class="left">
+
+        <!-- Foto profile -->
+        <img 
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000"
+          class="profile-img"
+        >
+
+        <!-- Education -->
+        <div class="section">
+          <h2>EDUCATION</h2>
+
+          <p>
+            <strong>SMK Multimedia</strong><br>
+            Sekolah Contoh<br>
+            2022 - 2025
+          </p>
+
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+          <h2>PROJECTS</h2>
+
+          <p>
+            <strong>Website Portfolio</strong><br>
+            Membuat website portfolio modern menggunakan HTML dan CSS.
+          </p>
+
+          <br>
+
+          <p>
+            <strong>Design Social Media</strong><br>
+            Membuat desain Instagram dan branding visual.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- =========================
+           KOLOM KANAN
+      ========================== -->
+      <div class="right">
+
+        <!-- About Me -->
+        <div class="right-section">
+
+          <h2>ABOUT ME</h2>
+
+          <p style="font-size:20px; line-height:35px;">
+            Saya adalah seorang yang tertarik di bidang design,
+            editing, dan web development. Saya suka membuat
+            tampilan website yang modern dan elegant.
+          </p>
+
+        </div>
+
+        <!-- Experience -->
+        <div class="right-section">
+
+          <h2>EXPERIENCE</h2>
+
+          <div class="job-title">
+            Front End Developer
+          </div>
+
+          <div class="company">
+            Freelance
+          </div>
+
+          <div class="date">
+            2024 - Sekarang
+          </div>
+
+          <ul>
+            <li>Membuat website portfolio responsive</li>
+            <li>Mendesain tampilan modern dan minimalis</li>
+            <li>Membuat animasi menggunakan CSS</li>
+          </ul>
+
+        </div>
+
+        <!-- Skill -->
+        <div class="right-section">
+
+          <h2>SKILLS</h2>
+
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Canva</li>
+            <li>CapCut</li>
+            <li>UI Design</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
-
-</section>
 
 </body>
 </html>
